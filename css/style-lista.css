@@ -1,0 +1,59 @@
+#div-lista {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 5px;
+    border-radius: 8px;
+}
+
+#div-lista h3 {
+    padding: 30px 0px;
+}
+
+#div-lista-cabecalho {
+    background-color: #e7eded;
+}
+
+#div-lista-itens {
+    min-height: 500px;
+    width: 100%;
+}
+
+#div-lista-cabecalho,
+.item-produto {
+    height: 50px;
+    width: 100%;
+    padding: 0px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.item-produto {
+    margin: 20px 0px;
+
+}
+
+.input-num-qtde {
+    width: 50px;
+    padding: 5px;
+    text-align: center;
+}
+
+.item-produto img {
+    width: 15px;
+    cursor: pointer;
+}
+
+.colTp01 {
+    width: 30px;
+    text-align: center;
+}
+
+.colTp02 {
+    width: 80px;
+}
+
+.colTp03 {
+    width: 80px;
+    text-align: right;
+}

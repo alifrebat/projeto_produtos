@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produto</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="geral">
+        <header id="cabecalho">
+            <h3 id="titulo">Movimentação Produto</h3>
+        </header>
+        <div id="div-form">
+            <form name="form-produto" id="form-produto">
+                <div id="divelementos">
+                    <div id="div-form-esquerdo">
+                        <input type="text" name="descricaoproduto" id="descricaoproduto" class="input-txt"
+                            maxlength="30" placeholder="Descrição Produto" required>
+                        <input type="number" name="valorunitario" id="valorunitario" class="input-num" maxlength="10"
+                            placeholder="Valor Unitário" required>
+                        <select name="unidade" id="unidade" class="select-txt">
+                            <option>Selecione a Unidade</option>
+                            <option value="kg">Quilo</option>
+                            <option value="g">Grama</option>
+                            <option value="l">Litro</option>
+                            <option value="un">Unidade</option>
+                            <option value="cm">Centimetro</option>
+                            <option value="m">Metro</option>
+                            <option value="m²">m²</option>
+                            <option value="cx">Caixa</option>
+                            <option value="dz">Dúzia</option>
+                            <option value="ptc">Pacote</option>
+                        </select>
+
+                        <div id="div-radios">
+                            <span class="label-span">Tipo Produto</span>
+                            <input type="radio" name="tipoproduto" id="tipo1" class="input-radio" value="1"> Tipo 1
+                            <input type="radio" name="tipoproduto" id="tipo2" class="input-radio" value="2"> Tipo 2
+                            <input type="radio" name="tipoproduto" id="tipo3" class="input-radio" value="3"> Tipo 3
+                            <input type="radio" name="tipoproduto" id="tipo4" class="input-radio" value="4"> Tipo 4
+                            <input type="radio" name="tipoproduto" id="tipo5" class="input-radio" value="5"> Tipo 5
+                        </div>
+                    </div>
+                    <div id="div-form-direito">
+                        <span class="label-span">Características do Produto</span>
+                        <textarea name="caracteristicasproduto" id="caracteristicasproduto" required></textarea>
+                    </div>
+                </div>
+                <div id="div-btns">
+                    <button type="submit" id="btn-cadastrar">Cadastrar</button>
+                    <button type="reset" id="btn-limpar">Limpar</button>
+                </div>
+            </form>
+        </div>
+
+        <div id="div-lista">
+
+            <h3>Lista Produtos</h3>
+
+            <div id="div-lista-cabecalho">
+                <span class="colTp01">ID</span> <span class="colTp02">Produto</span> <span class="colTp0">Valor
+                    Unitário</span> <span class="colTp01">UND</span><span class="colTp02">Quantidade</span> <span
+                    class="colTp01">Tipo</span><span class="colTp03">Total</span><span class="colTp0">Valor
+                    Imposto</span><span class="colTp03">Valor Total</span><span class="colTp01"></span> <span
+                    class="colTp03"></span>
+            </div>
+            <div id="div-lista-itens">
+                <div class="item-produto">
+                    <span class="colTp01">1</span> <span class="colTp02">Bicicleta 21</span> <span class="colTp03">R$
+                        890,00</span> <span class="colTp01">UN</span><span class="colTp01"><input type="number"
+                            name="qtde1" id="qtde2" class="input-num-qtde" required value="1"></span> <span
+                        class="colTp01">1</span><span class="colTp03">R$ 1780,00</span><span class="colTp03">R$
+                        178,00</span><span class="colTp03">R$ 1958,00 </span><span class="colTp01"><img
+                            src="imagens/btn_alterar.png" alt="Alterar" title="Alterar"></span> <span
+                        class="colTp01"><img src="imagens/btn_excluir.png" alt="excluir" title="Excluir"></span>
+                </div>
+
+                <div class="item-produto">
+                    <span class="colTp01">1</span> <span class="colTp02">Bicicleta 21</span> <span class="colTp03">R$
+                        890,00</span> <span class="colTp01">UN</span><span class="colTp01"><input type="number"
+                            name="qtde1" id="qtde2" class="input-num-qtde" required value="1"></span> <span
+                        class="colTp01">1</span><span class="colTp03">R$ 1780,00</span><span class="colTp03">R$
+                        178,00</span><span class="colTp03">R$ 1958,00 </span><span class="colTp01"><img
+                            src="imagens/btn_alterar.png" alt="Alterar" title="Alterar"></span> <span
+                        class="colTp01"><img src="imagens/btn_excluir.png" alt="excluir" title="Excluir"></span>
+                </div>
+
+                <div class="item-produto">
+                    <span class="colTp01">1</span> <span class="colTp02">Bicicleta 21</span> <span class="colTp03">R$
+                        890,00</span> <span class="colTp01">UN</span><span class="colTp01"><input type="number"
+                            name="qtde1" id="qtde2" class="input-num-qtde" required value="1"></span> <span
+                        class="colTp01">1</span><span class="colTp03">R$ 1780,00</span><span class="colTp03">R$
+                        178,00</span><span class="colTp03">R$ 1958,00 </span><span class="colTp01"><img
+                            src="imagens/btn_alterar.png" alt="Alterar" title="Alterar"></span> <span
+                        class="colTp01"><img src="imagens/btn_excluir.png" alt="excluir" title="Excluir"></span>
+                </div>
+
+                <div class="item-produto">
+                    <span class="colTp01">1</span> <span class="colTp02">Bicicleta 21</span> <span class="colTp03">R$
+                        890,00</span> <span class="colTp01">UN</span><span class="colTp01"><input type="number"
+                            name="qtde1" id="qtde2" class="input-num-qtde" required value="1"></span> <span
+                        class="colTp01">1</span><span class="colTp03">R$ 1780,00</span><span class="colTp03">R$
+                        178,00</span><span class="colTp03">R$ 1958,00 </span><span class="colTp01"><img
+                            src="imagens/btn_alterar.png" alt="Alterar" title="Alterar"></span> <span
+                        class="colTp01"><img src="imagens/btn_excluir.png" alt="excluir" title="Excluir"></span>
+                </div>
+
+                <div class="item-produto">
+                    <span class="colTp01">1</span> <span class="colTp02">Bicicleta 21</span> <span class="colTp03">R$
+                        890,00</span> <span class="colTp01">UN</span><span class="colTp01"><input type="number"
+                            name="qtde1" id="qtde2" class="input-num-qtde" required value="1"></span> <span
+                        class="colTp01">1</span><span class="colTp03">R$ 1780,00</span><span class="colTp03">R$
+                        178,00</span><span class="colTp03">R$ 1958,00 </span><span class="colTp01"><img
+                            src="imagens/btn_alterar.png" alt="Alterar" title="Alterar"></span> <span
+                        class="colTp01"><img src="imagens/btn_excluir.png" alt="excluir" title="Excluir"></span>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
