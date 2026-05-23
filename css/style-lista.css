@@ -1,5 +1,5 @@
 #div-lista {
-    background-color: #ffffff;
+    background-color: var(--branca);
     padding: 20px;
     margin: 5px;
     border-radius: 8px;
@@ -10,7 +10,7 @@
 }
 
 #div-lista-cabecalho {
-    background-color: #e7eded;
+    background-color: var(--cor1);
 }
 
 #div-lista-itens {

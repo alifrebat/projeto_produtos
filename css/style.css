@@ -8,13 +8,22 @@
     font-family: 'Montserrat';
 }
 
+:root{
+    --preta:#000000;
+    --branca: #ffffff;
+    --cor1:#2a6994a2;
+    --cor2: #54b699;
+    --cor3: #eca40a;
+}
+
+
 #geral {
-    background-color: #e7eded;
+    background-color: var(--cor1);
     min-height: 800px;
     width: 1000px;
     margin: 20px auto;
-    padding: 30px;
-    border-radius: 8px;
+    padding: 50px;
+    border-radius: 50px;
 }
 
 #cabecalho {
@@ -24,3 +33,4 @@
     align-items: center;
     text-transform: uppercase;
 }
+

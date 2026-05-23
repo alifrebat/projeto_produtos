@@ -38,7 +38,7 @@ const addProduto = async (objProduto) => {
 
     if (resp !== undefined) {
         alert('Cadastrado com Sucesso!!!')
-        
+
         listarProdutos()
 
     } else {
@@ -56,13 +56,95 @@ const listarProdutos = async () => {
     produtos = await consultarDados()
 
     produtos.forEach((elem, i) => {
-        const divItemProduto = document.createElement('div')
-        divItemProduto.setAttribute('class','item-produto')
-        divItemProduto.innerHTML = `${i + 1} ${elem.descricaoproduto}`
+        let total = 0.0
+        let valorTotal = 0.0
 
+        const calcImposto = calcularImposto(elem.tipoproduto, elem.valorunitario)
+
+
+        const inputQuant = document.createElement('input')
+        inputQuant.setAttribute('type', 'number')
+        inputQuant.setAttribute('name', `qtde${i}`)
+        inputQuant.setAttribute('id', `qtde${i}`)
+        inputQuant.setAttribute('class', 'input-num-qtde')
+        inputQuant.setAttribute('required', 'required')
+        inputQuant.setAttribute('value', 1)
+
+        inputQuant.addEventListener('input', (evt) => {
+            total = elem.valorunitario * parseFloat(evt.target.value)
+            console.log(parseFloat(total).toFixed(2).replace('.', ','))
+
+            const spanTotal = divItemProduto.querySelector('.total')
+            spanTotal.innerHTML = parseFloat(total).toFixed(2).replace('.', ',')
+
+            valorTotal = calcImposto + total
+
+            const spanValorTotal = divItemProduto.querySelector('.valorTotal')
+            spanValorTotal.innerHTML = parseFloat(valorTotal).toFixed(2).replace('.', ',')
+
+        })
+
+        const divItemProduto = document.createElement('div')
+        divItemProduto.setAttribute('class', 'item-produto')
+        divItemProduto.innerHTML = `<span class='colTp01'>${i + 1}</span><span class='colTp02'>${elem.descricaoproduto}</span><span class='colTp03'>${parseFloat(elem.valorunitario).toFixed(2).replace(".", ",")} ${elem.unidade}</span><span class='colTp03 col-input'></span><span class='colTp01'>${elem.tipoproduto}</span><span class='colTp03 total'>${parseFloat(total).toFixed(2).replace('.', ',')}</span><span class='colTp0'>${parseFloat(calcImposto).toFixed(2).replace('.', ',')}</span><span class='colTp03 valorTotal'>${parseFloat(valorTotal).toFixed(2).replace('.', ',')}</span><span class='colTp03 btnAlterar'></span><span class='colTp03 btnExcluir'></span>`
+
+        const btnExcluir = document.createElement('img')
+        btnExcluir.setAttribute('src', 'imagens/btn_excluir.png')
+        btnExcluir.setAttribute('alt', 'Excluir')
+        btnExcluir.setAttribute('title', 'Excluir')
+
+        btnExcluir.addEventListener('click', () => {
+            if (confirm(`Deseja excluir ${elem.descricaoproduto}?`)) {
+                excluirPessoa(elem.idprodutos)
+                window.location = 'index.html'
+            }
+        })
+
+        const btnAlterar = document.createElement('img')
+        btnAlterar.setAttribute('src', 'imagens/btn_alterar.png')
+        btnAlterar.setAttribute('alt', 'Alterar')
+        btnAlterar.setAttribute('title', 'Alterar')
+
+        btnAlterar.addEventListener('click', () => {
+            carregaForm(elem)
+            btnEnviar.innerHTML = 'ALTERAR'
+            window.location.href = '#tito'
+
+            sessionStorage.setItem('objPessoaId', elem.idprodutos)
+        })
+
+        // pega o span onde o input será inserido
+        const spanInput = divItemProduto.querySelector('.col-input')
+        const spanBtnAlterar = divItemProduto.querySelector('.btnAlterar')
+        const spanBtnExcluir = divItemProduto.querySelector('.btnExcluir')
+
+        // adiciona o input
+        spanInput.appendChild(inputQuant)
+        spanBtnAlterar.appendChild(btnAlterar)
+        spanBtnExcluir.appendChild(btnExcluir)
 
         divListaItem.appendChild(divItemProduto)
     })
+
+}
+
+//CALCULAR IMPOSTO
+const calcularImposto = (tipo, valor) => {
+    let valorImposto = 0.0
+
+    if (tipo === 1) {
+        valorImposto = 0
+    } else if (tipo === 2) {
+        valorImposto = valor * 0.08
+    } else if (tipo === 3) {
+        valorImposto = valor * 0.10
+    } else if (tipo === 4) {
+        valorImposto = valor * 0.12
+    } else {
+        valorImposto = valor * 0.17
+    }
+
+    return valorImposto
 
 }
 
