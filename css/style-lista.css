@@ -3,6 +3,7 @@
     padding: 20px;
     margin: 5px;
     border-radius: 8px;
+    
 }
 
 #div-lista h3 {
@@ -11,6 +12,7 @@
 
 #div-lista-cabecalho {
     background-color: var(--cor1);
+    color: var(--branca);
 }
 
 #div-lista-itens {
@@ -26,7 +28,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    color: var(--branca);
+    
+}
+
+.item-produto {
+    color: var(--cor1);
 }
 
 #div-lista h3{
