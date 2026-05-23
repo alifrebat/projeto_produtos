@@ -34,3 +34,12 @@
     text-transform: uppercase;
 }
 
+h3{
+    font-size: 2em;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+
+}
+#cabecalho h3{
+    color: var(--branca);
+}
