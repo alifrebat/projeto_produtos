@@ -20,12 +20,11 @@ formProduto.addEventListener('submit', async (evt) => {
         caracteristicasproduto: formProd.get('caracteristicasproduto'),
         valorunitario: formProd.get('valorunitario'),
         unidade: formProd.get('unidade'),
-        tipoproduto: formProd.get('tipoproduto')
+        tipoproduto: formProd.get('tipoproduto'),
+        quantidade: 1
     }
 
-
     addProduto(objProduto)
-
 
     formProduto.reset()
 
@@ -34,7 +33,11 @@ formProduto.addEventListener('submit', async (evt) => {
 //ENVIAR O OBJETO objProduto PARA O BANCO DE DADOS
 const addProduto = async (objProduto) => {
 
-    const resp = await salvarDados(objProduto)
+    produtos.push(objProduto)
+
+    listarProdutos()
+
+   /* const resp = await salvarDados(objProduto)
 
     if (resp !== undefined) {
         alert('Cadastrado com Sucesso!!!')
@@ -43,9 +46,9 @@ const addProduto = async (objProduto) => {
 
     } else {
         alert('Não foi possível Cadastrar!!')
-    }
+    }*/
 
-    return resp
+    //return resp
 
 }
 
@@ -53,14 +56,13 @@ const addProduto = async (objProduto) => {
 const listarProdutos = async () => {
     divListaItem.innerHTML = ''
 
-    produtos = await consultarDados()
+    //produtos = await consultarDados()
 
     produtos.forEach((elem, i) => {
-        let total = 0.0
+        let total = elem.valorunitario * elem.quantidade
         let valorTotal = 0.0
 
         const calcImposto = calcularImposto(elem.tipoproduto, elem.valorunitario)
-
 
         const inputQuant = document.createElement('input')
         inputQuant.setAttribute('type', 'number')
@@ -68,11 +70,11 @@ const listarProdutos = async () => {
         inputQuant.setAttribute('id', `qtde${i}`)
         inputQuant.setAttribute('class', 'input-num-qtde')
         inputQuant.setAttribute('required', 'required')
-        inputQuant.setAttribute('value', 1)
+        inputQuant.setAttribute('value', elem.quantidade)
 
         inputQuant.addEventListener('input', (evt) => {
-            total = elem.valorunitario * parseFloat(evt.target.value)
-            console.log(parseFloat(total).toFixed(2).replace('.', ','))
+            produtos[i].quantidade = parseInt(evt.target.value)
+            total = elem.valorunitario * parseInt(evt.target.value)
 
             const spanTotal = divItemProduto.querySelector('.total')
             spanTotal.innerHTML = parseFloat(total).toFixed(2).replace('.', ',')
