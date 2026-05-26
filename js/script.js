@@ -30,21 +30,18 @@ formProduto.addEventListener('submit', async (evt) => {
 
 //ENVIAR O OBJETO objProduto PARA O BANCO DE DADOS
 const addProduto = async (objProduto) => {
-
    // produtos.push(objProduto)
 
-    listarProdutos()
-
-    const resp = await salvarDados(objProduto)
- 
-     if (resp !== undefined) {
-         alert('Cadastrado com Sucesso!!!')
- 
-         listarProdutos()
- 
-     } else {
-         alert('Não foi possível Cadastrar!!')
-     }
+   const resp = await salvarDados(objProduto)
+   
+   if (resp !== undefined) {
+       alert('Cadastrado com Sucesso!!!')
+       
+       listarProdutos()
+       
+    } else {
+        alert('Não foi possível Cadastrar!!')
+    }
 
     return resp
 
@@ -57,7 +54,7 @@ const listarProdutos = async () => {
     produtos = await consultarDados()
 
     produtos.forEach((elem, i) => {
-        let total = elem.valorunitario * elem.quantidade
+        let total = elem.valorunitario * 1
 
         const calcImposto = calcularImposto(elem.tipoproduto, parseFloat(total))
 
@@ -68,7 +65,7 @@ const listarProdutos = async () => {
         inputQuant.setAttribute('id', `qtde${i}`)
         inputQuant.setAttribute('class', 'input-num-qtde')
         inputQuant.setAttribute('required', 'required')
-        inputQuant.setAttribute('value', elem.quantidade)
+        inputQuant.setAttribute('value', 1)
 
         inputQuant.addEventListener('input', (evt) => {
             produtos[i].quantidade = parseInt(evt.target.value)
@@ -82,8 +79,6 @@ const listarProdutos = async () => {
             const spanValorTotal = divItemProduto.querySelector('.valorTotal')
             spanValorTotal.innerHTML = parseFloat(valorTotal).toFixed(2).replace('.', ',')
         })
-
-        
 
         const divItemProduto = document.createElement('div')
         divItemProduto.setAttribute('class', 'item-produto')
