@@ -41,7 +41,7 @@ select {
     border-bottom: 2px solid var(--cor1);
 }
 
-.item-produto input, imtextarea {
+.item-produto input, textarea {
     border: 2px solid var(--cor1);
     border-radius: 10px;
 }

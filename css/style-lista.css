@@ -48,6 +48,8 @@
     width: 50px;
     padding: 5px;
     text-align: center;
+    color: var(--cor1);
+    font-weight: bold;
 }
 
 .item-produto img {
@@ -65,6 +67,17 @@
 }
 
 .colTp03 {
+    background-color: aqua;
     width: 80px;
     text-align: right;
+}
+
+.colBtn{
+    width: 20px;
+}
+
+.isento{
+    background-color: var(--cor1);
+    color:  var(--branca);
+    padding: 5px;
 }
