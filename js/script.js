@@ -15,13 +15,11 @@ formProduto.addEventListener('submit', async (evt) => {
     const formProd = new FormData(formProduto)
 
     let objProduto = {
-        idprodutos: 0,
         descricaoproduto: formProd.get('descricaoproduto'),
         caracteristicasproduto: formProd.get('caracteristicasproduto'),
         valorunitario: formProd.get('valorunitario'),
         unidade: formProd.get('unidade'),
         tipoproduto: formProd.get('tipoproduto'),
-        quantidade: 1
     }
 
     addProduto(objProduto)
@@ -33,11 +31,11 @@ formProduto.addEventListener('submit', async (evt) => {
 //ENVIAR O OBJETO objProduto PARA O BANCO DE DADOS
 const addProduto = async (objProduto) => {
 
-    produtos.push(objProduto)
+   // produtos.push(objProduto)
 
     listarProdutos()
 
-    /* const resp = await salvarDados(objProduto)
+    const resp = await salvarDados(objProduto)
  
      if (resp !== undefined) {
          alert('Cadastrado com Sucesso!!!')
@@ -46,9 +44,9 @@ const addProduto = async (objProduto) => {
  
      } else {
          alert('Não foi possível Cadastrar!!')
-     }*/
+     }
 
-    //return resp
+    return resp
 
 }
 
@@ -56,7 +54,7 @@ const addProduto = async (objProduto) => {
 const listarProdutos = async () => {
     divListaItem.innerHTML = ''
 
-    //produtos = await consultarDados()
+    produtos = await consultarDados()
 
     produtos.forEach((elem, i) => {
         let total = elem.valorunitario * elem.quantidade

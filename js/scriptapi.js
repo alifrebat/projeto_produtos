@@ -1,13 +1,14 @@
 //ADICIONAR NO BANCO DE DADOS
-const salvarDados = async (objVeiculo) => {
-    const endPoint = 'https://localhost:7031/api/Produto'
+const salvarDados = async (objProduto) => {
+    //const endPoint = 'https://localhost:7031/api/Produto'
+    const endPoint = 'http://127.0.0.1:8000/produtos/'
 
     try {
         const resposta = await fetch(
             endPoint, {
             method: 'POST',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(objVeiculo)
+            body: JSON.stringify(objProduto)
         })
 
         if (!resposta.ok) {
@@ -26,7 +27,8 @@ const salvarDados = async (objVeiculo) => {
 
 //CONSULTAR PESSOAS
 const consultarDados = async () => {
-    const endPoint = 'https://localhost:7031/api/Produto'
+     //const endPoint = 'https://localhost:7031/api/Produto'
+    const endPoint = 'http://127.0.0.1:8000/produtos/'
 
     try {
         return await fetch(endPoint)
@@ -43,7 +45,8 @@ const consultarDados = async () => {
 
 //EXCLUIR PESSOA 
 const excluirDados = async (idProduto) => {
-    const endPoint = `https://localhost:7031/api/Produto/${idProduto}`
+     //const endPoint = 'https://localhost:7031/api/Produto'
+    const endPoint = 'http://127.0.0.1:8000/produtos/'
 
     try {
         const resposta_status = await fetch(endPoint, {
@@ -59,15 +62,16 @@ const excluirDados = async (idProduto) => {
 }
 
 //ADICIONAR NO BANCO DE DADOS
-const alterarDados = async (objVeiculo) => {
-    const endPoint = `https://localhost:7031/api/Produto/${objVeiculo.idProduto}`
+const alterarDados = async (objProduto) => {
+     //const endPoint = 'https://localhost:7031/api/Produto'
+    const endPoint = 'http://127.0.0.1:8000/produtos/'
 
     try {
         const resposta = await fetch(
             endPoint, {
             method: 'PUT',
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(objVeiculo)
+            body: JSON.stringify(objProduto)
         })
 
         if (!resposta.ok) {
